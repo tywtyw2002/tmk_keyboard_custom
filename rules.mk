@@ -419,13 +419,13 @@ flip: $(TARGET).hex
 	batchisp -hardware usb -device $(MCU) -operation start reset 0
 
 dfu: $(TARGET).hex
-	dfu-programmer $(MCU) erase
-	dfu-programmer $(MCU) flash $(TARGET).hex
-	dfu-programmer $(MCU) reset
+	./dfu-programmer $(MCU) erase
+	./dfu-programmer $(MCU) flash $(TARGET).hex
+	./dfu-programmer $(MCU) reset
 	
 dfu-start:
-	dfu-programmer $(MCU) reset
-	dfu-programmer $(MCU) start
+	./dfu-programmer $(MCU) reset
+	./dfu-programmer $(MCU) start
 
 flip-ee: $(TARGET).hex $(TARGET).eep
 	$(COPY) $(TARGET).eep $(TARGET)eep.hex
